@@ -54,4 +54,10 @@ public class LoginServiceImpl implements LoginService {
 		return loginRepository.findAll();
 	}
 
+	@Override
+	public void deleteAllrows() {
+		// TODO Auto-generated method stub
+		loginRepository.deleteAll();
+	}
+
 }

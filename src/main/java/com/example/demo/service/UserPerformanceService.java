@@ -19,4 +19,6 @@ public interface UserPerformanceService {
 	List<UserPerformanceDTO> getAllUserPerformanceBasedOnScoreAndTime();
 
 	List<QuestionsWrittenByParticularUser> getQuestionsByUserTokenId(String tokenId);
+	
+	void deleteAllrows();
 }

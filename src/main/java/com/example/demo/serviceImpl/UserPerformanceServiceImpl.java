@@ -1,7 +1,5 @@
 package com.example.demo.serviceImpl;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -50,37 +48,42 @@ public class UserPerformanceServiceImpl implements UserPerformanceService {
 	public Optional<UserPerformance> getUserPerformanceById(int id) {
 		return userPerformanceRepository.findById(id);
 	}
-	
+
 	@Override
 	public List<UserPerformanceDTO> getAllUserPerformanceBasedOnScoreAndTime() {
 		return userPerformanceRepository.getUserPerformanceBasedOnScoreAndExamDurationTime();
 	}
-	
+
 	@Override
 	public List<QuestionsWrittenByParticularUser> getQuestionsByUserTokenId(String tokenId) {
 		List<Object[]> rawData = userPerformanceRepository.getQuestionsWrittenByUser(tokenId);
-	    List<QuestionsWrittenByParticularUser> results = new ArrayList<>();
+		List<QuestionsWrittenByParticularUser> results = new ArrayList<>();
 
-	    for (Object[] row : rawData) {
-	        String question = (String) row[0];
-	        String optionA = (String) row[1];
-	        String optionB = (String) row[2];
-	        String optionC = (String) row[3];
-	        String optionD = (String) row[4];
-	        
-	        // Cast or parse correctOption and optionSelected as char
-	        char correctOption = row[5] != null ? row[5].toString().charAt(0) : '\0'; // Ensure it's a valid char
-	        char optionSelected = row[6] != null ? row[6].toString().charAt(0) : '\0';
+		for (Object[] row : rawData) {
+			String question = (String) row[0];
+			String optionA = (String) row[1];
+			String optionB = (String) row[2];
+			String optionC = (String) row[3];
+			String optionD = (String) row[4];
 
-	        boolean finalOutput = row[7] != null && ((Long) row[7]) == 1L;
+			// Cast or parse correctOption and optionSelected as char
+			char correctOption = row[5] != null ? row[5].toString().charAt(0) : '\0'; // Ensure it's a valid char
+			char optionSelected = row[6] != null ? row[6].toString().charAt(0) : '\0';
 
-	        // Create DTO and add it to the results
-	        QuestionsWrittenByParticularUser questionData = new QuestionsWrittenByParticularUser(
-	            question, optionA, optionB, optionC, optionD, correctOption, optionSelected, finalOutput
-	        );
-	        results.add(questionData);
-	    }
+			boolean finalOutput = row[7] != null && ((Long) row[7]) == 1L;
 
-	    return results;
+			// Create DTO and add it to the results
+			QuestionsWrittenByParticularUser questionData = new QuestionsWrittenByParticularUser(question, optionA,
+					optionB, optionC, optionD, correctOption, optionSelected, finalOutput);
+			results.add(questionData);
+		}
+
+		return results;
+	}
+
+	@Override
+	public void deleteAllrows() {
+		// TODO Auto-generated method stub
+		userPerformanceRepository.deleteAll();
 	}
 }

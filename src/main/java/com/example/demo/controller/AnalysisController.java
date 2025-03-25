@@ -37,5 +37,9 @@ public class AnalysisController {
 		}
 		return ResponseEntity.ok("All questions and selected options saved successfully!");
 	}
-
+	
+	@GetMapping("/deleteAll")
+	public void deleteAll() {
+		analysisServiceImpl.deleteAllrows();
+	}
 }

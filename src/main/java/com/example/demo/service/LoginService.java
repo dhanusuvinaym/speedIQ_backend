@@ -15,4 +15,6 @@ public interface LoginService {
 	void deleteUser(int id);
 	
 	List<Login> getAllLoginDetails();
+	
+	void deleteAllrows();
 }

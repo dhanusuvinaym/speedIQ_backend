@@ -25,4 +25,9 @@ public class AnalysisServiceImpl implements AnalysisService {
 		return analysisRepository.getAllAnalysisByUserId(id);
 	}
 
+	@Override
+	public void deleteAllrows() {
+		analysisRepository.deleteAll();
+	}
+
 }

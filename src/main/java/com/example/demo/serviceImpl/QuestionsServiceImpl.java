@@ -55,4 +55,10 @@ public class QuestionsServiceImpl implements QuestionsService {
 	public List<Questions> getAllQuestions() {
 		return questionRepository.findAll();
 	}
+
+	@Override
+	public void deleteAllrows() {
+		// TODO Auto-generated method stub
+		questionRepository.deleteAll();
+	}
 }

@@ -15,4 +15,6 @@ public interface QuestionsService {
 	void updateQuestion(int id,Questions q);	
 	
 	List<Questions> getAllQuestions();
+	
+	void deleteAllrows();
 }

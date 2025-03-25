@@ -113,9 +113,14 @@ public class QuestionsController {
 		questionsService.save(q);
 		return "Question added successfully";
 	}
-	
+
 	@GetMapping("/getAll")
-	public List<Questions> getAllQuestions(){
+	public List<Questions> getAllQuestions() {
 		return questionsService.getAllQuestions();
+	}
+
+	@GetMapping("/deleteAll")
+	public void deleteAll() {
+		questionsService.deleteAllrows();
 	}
 }

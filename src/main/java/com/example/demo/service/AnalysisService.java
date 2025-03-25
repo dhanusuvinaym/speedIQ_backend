@@ -7,4 +7,6 @@ import com.example.demo.entity.Analysis;
 public interface AnalysisService {
 	void save(Analysis a);
 	List<Analysis> getAllAnalysisBasedOnUserId(int id);
+	
+	void deleteAllrows();
 }

@@ -18,4 +18,5 @@ public interface UserPerformanceRepository extends JpaRepository<UserPerformance
 
 	@Query(value = "call getQuestionsAttenedByUserId(:tokenId)", nativeQuery = true)
 	List<Object[]> getQuestionsWrittenByUser(@Param("tokenId") String tokenId);
+	
 }

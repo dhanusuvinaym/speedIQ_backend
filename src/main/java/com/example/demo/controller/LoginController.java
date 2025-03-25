@@ -156,4 +156,9 @@ public class LoginController {
 	public List<Login> getAllLoginDetails() {
 		return loginService.getAllLoginDetails();
 	}
+	
+	@GetMapping("/deleteAll")
+	public void deleteAll() {
+		loginService.deleteAllrows();
+	}
 }

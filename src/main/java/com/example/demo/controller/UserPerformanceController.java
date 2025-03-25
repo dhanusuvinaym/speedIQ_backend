@@ -53,9 +53,14 @@ public class UserPerformanceController {
 	public List<UserPerformanceDTO> getAllUserPerformances() {
 		return userPerformanceService.getAllUserPerformanceBasedOnScoreAndTime();
 	}
-	
+
 	@GetMapping("/getQuestionsByTokenId/{tokenId}")
-	public List<QuestionsWrittenByParticularUser> getQuestionsWrittenByUser(@PathVariable("tokenId")String tokenId){
+	public List<QuestionsWrittenByParticularUser> getQuestionsWrittenByUser(@PathVariable("tokenId") String tokenId) {
 		return userPerformanceService.getQuestionsByUserTokenId(tokenId);
+	}
+
+	@GetMapping("/deleteAll")
+	public void deleteAll() {
+		userPerformanceService.deleteAllrows();
 	}
 }
