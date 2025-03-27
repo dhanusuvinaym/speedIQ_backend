@@ -27,7 +27,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.demo.entity.Questions;
 import com.example.demo.service.QuestionsService;
 
-@CrossOrigin("http://localhost:3000")
+//@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://speediqfrontend.s3-website-ap-southeast-2.amazonaws.com/")
 @RestController
 @RequestMapping("/api/questions")
 public class QuestionsController {

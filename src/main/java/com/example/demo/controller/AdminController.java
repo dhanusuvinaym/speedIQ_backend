@@ -20,7 +20,8 @@ import com.example.demo.entity.Admin;
 import com.example.demo.security.JwtUtil;
 import com.example.demo.service.AdminService;
 
-@CrossOrigin("http://localhost:3000")
+//@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://speediqfrontend.s3-website-ap-southeast-2.amazonaws.com/")
 @RestController
 @RequestMapping("/api/admin")
 public class AdminController {

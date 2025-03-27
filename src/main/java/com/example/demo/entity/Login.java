@@ -27,7 +27,10 @@ public class Login {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @Column(name = "mobilenumber",length = 10, unique = true)
+    @Column(name = "username")
+    private String username;
+    
+    @Column(name = "mobilenumber",length = 10)
     private String mobileNumber;
 
     @Column(name = "tokenid", nullable = false, length = 6, unique = true)

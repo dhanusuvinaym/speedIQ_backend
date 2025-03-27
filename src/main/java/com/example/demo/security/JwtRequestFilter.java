@@ -9,8 +9,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.MalformedJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -35,13 +33,17 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 			throws ServletException, IOException {
 
 		final String requestUri = request.getRequestURI();
-		if ("/api/login/validate".equals(requestUri) || "/api/admin/validate".equals(requestUri)) {
+
+		log.info("Request URI =  {}", requestUri);
+
+		if ("/api/login/validate".equals(requestUri) || "/api/admin/validate".equals(requestUri)
+				|| "/".equals(requestUri)) {
 			filterChain.doFilter(request, response);
 			return;
 		}
 
 		log.info(" Request header for demo is {} ", request.getHeader("Demo"));
-		
+
 		log.info(" Request header for Bearer is {} ", request.getHeader(headerName));
 
 		if (request.getHeader("Demo").equals("true")) {

@@ -17,7 +17,8 @@ import com.example.demo.serviceImpl.AnalysisServiceImpl;
 
 @RestController
 @RequestMapping("/api/analysis")
-@CrossOrigin("http://localhost:3000")
+//@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://speediqfrontend.s3-website-ap-southeast-2.amazonaws.com/")
 public class AnalysisController {
 
 	@Autowired

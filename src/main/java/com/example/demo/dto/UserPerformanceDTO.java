@@ -14,14 +14,18 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UserPerformanceDTO {
 	public int id;
+	public String username;
+	public String mobilenumber;
 	public String tokenid;
 	public int score;
 	public LocalTime examDurationTime;
 	public LocalDateTime dateTime;
 
-	public UserPerformanceDTO(int id, String tokenid, int score, Time exam_duration_time,
-			Timestamp date_time) {
+	public UserPerformanceDTO(int id, String username, String mobilenumber, String tokenid, int score,
+			Time exam_duration_time, Timestamp date_time) {
 		this.id = id;
+		this.username = username;
+		this.mobilenumber = mobilenumber;
 		this.tokenid = tokenid;
 		this.score = score;
 		this.examDurationTime = exam_duration_time.toLocalTime();

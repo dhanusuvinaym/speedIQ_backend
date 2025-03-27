@@ -34,7 +34,8 @@ import com.example.demo.service.LoginService;
 
 import lombok.extern.slf4j.Slf4j;
 
-@CrossOrigin("http://localhost:3000")
+//@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://speediqfrontend.s3-website-ap-southeast-2.amazonaws.com/")
 @RestController
 @RequestMapping("/api/login")
 @Slf4j
@@ -129,14 +130,16 @@ public class LoginController {
 			if (login == null) {
 				throw new RuntimeException("Invalid Token ID");
 			}
-			login.setMobileNumber(l.getUsername());			
+			login.setUsername(l.getUsername());
+			login.setMobileNumber(l.getMobilenumber());
 			loginService.updateCredentials(login.getId(), login);
-			
+
 			LoginDTO res = new LoginDTO();
 			res.setId(login.getId());
 			res.setIsvalid(login.isIsvalid());
 			res.setTokenId(login.getTokenId());
 			res.setUsername(l.getUsername());
+			res.setMobilenumber(l.getMobilenumber());
 			res.setJwtToken(jwtUtil.generateToken(login.getTokenId()));
 
 			return ResponseEntity.ok(res);
@@ -156,7 +159,7 @@ public class LoginController {
 	public List<Login> getAllLoginDetails() {
 		return loginService.getAllLoginDetails();
 	}
-	
+
 	@GetMapping("/deleteAll")
 	public void deleteAll() {
 		loginService.deleteAllrows();

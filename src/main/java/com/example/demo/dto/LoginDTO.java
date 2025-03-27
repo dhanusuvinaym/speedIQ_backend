@@ -14,6 +14,7 @@ import lombok.Setter;
 public class LoginDTO {
 	public Integer id;
 	public String username;
+	public String mobilenumber;
 	public String tokenId;
 	public boolean isvalid;
 	public LocalDateTime activity_date;

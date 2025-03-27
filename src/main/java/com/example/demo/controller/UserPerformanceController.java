@@ -19,7 +19,8 @@ import com.example.demo.dto.UserPerformanceDTO;
 import com.example.demo.entity.UserPerformance;
 import com.example.demo.service.UserPerformanceService;
 
-@CrossOrigin("http://localhost:3000")
+//@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://speediqfrontend.s3-website-ap-southeast-2.amazonaws.com/")
 @RestController
 @RequestMapping("/api/userperformance")
 public class UserPerformanceController {
