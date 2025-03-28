@@ -32,6 +32,7 @@ public class SecurityConfig {
 						.requestMatchers(new DemoHeaderRequestMatcher()).permitAll()
 						.requestMatchers(mvcRequestMatcher.pattern("/api/login/validate")).permitAll()
 						.requestMatchers(mvcRequestMatcher.pattern("/api/admin/validate")).permitAll()
+						.requestMatchers(mvcRequestMatcher.pattern("/api/guidelines/*")).permitAll()
 						.requestMatchers(mvcRequestMatcher.pattern("/")).permitAll()
 						.anyRequest().authenticated())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));

@@ -37,7 +37,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 		log.info("Request URI =  {}", requestUri);
 
 		if ("/api/login/validate".equals(requestUri) || "/api/admin/validate".equals(requestUri)
-				|| "/".equals(requestUri)) {
+				|| "/".equals(requestUri) || requestUri.contains("/api/guidelines")) {
 			filterChain.doFilter(request, response);
 			return;
 		}
