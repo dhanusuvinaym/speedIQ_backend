@@ -44,7 +44,7 @@ public class SecurityConfig {
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
 		configuration.setAllowCredentials(true);
-		configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000","http://speediqfrontend.s3-website-ap-southeast-2.amazonaws.com/"));
+		configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000","http://speediqfrontend.s3-website-ap-southeast-2.amazonaws.com/","http://speediq.com.s3-website.eu-north-1.amazonaws.com/","https://www.speed-iq.com","https://speed-iq.com"));
 		configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
 		configuration.setExposedHeaders(List.of("Content-Type"));
 		configuration.setAllowedHeaders(Arrays.asList("*"));

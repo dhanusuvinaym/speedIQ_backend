@@ -37,6 +37,9 @@ public class UserPerformance {
     @Column(name = "exam_duration_time", nullable = false)
     private LocalTime  exam_duration_time;
     
+    @Column(name = "status")
+    private String status;
+    
     @Column(name = "date_time", nullable = false)
     private LocalDateTime dateTime;
 }

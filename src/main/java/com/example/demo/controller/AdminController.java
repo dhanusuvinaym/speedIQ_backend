@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -20,8 +19,8 @@ import com.example.demo.entity.Admin;
 import com.example.demo.security.JwtUtil;
 import com.example.demo.service.AdminService;
 
-//@CrossOrigin("http://localhost:3000")
-@CrossOrigin("http://speediqfrontend.s3-website-ap-southeast-2.amazonaws.com/")
+
+//@CrossOrigin("http://speediq.com.s3-website.eu-north-1.amazonaws.com/")
 @RestController
 @RequestMapping("/api/admin")
 public class AdminController {

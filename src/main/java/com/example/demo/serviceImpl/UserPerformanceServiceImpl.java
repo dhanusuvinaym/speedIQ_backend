@@ -32,6 +32,7 @@ public class UserPerformanceServiceImpl implements UserPerformanceService {
 			performance.setUser_id(updatedPerformance.getUser_id());
 			performance.setScore(updatedPerformance.getScore());
 			performance.setExam_duration_time(updatedPerformance.getExam_duration_time());
+			performance.setStatus(updatedPerformance.getStatus());
 			performance.setDateTime(updatedPerformance.getDateTime());
 			return userPerformanceRepository.save(performance);
 		} else {

@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,7 +34,7 @@ import com.example.demo.service.LoginService;
 import lombok.extern.slf4j.Slf4j;
 
 //@CrossOrigin("http://localhost:3000")
-@CrossOrigin("http://speediqfrontend.s3-website-ap-southeast-2.amazonaws.com/")
+//@CrossOrigin("http://speediq.com.s3-website.eu-north-1.amazonaws.com/")
 @RestController
 @RequestMapping("/api/login")
 @Slf4j
@@ -119,7 +118,7 @@ public class LoginController {
 	@PutMapping("/update/{id}")
 	public String updateCredentials(@PathVariable("id") int id, @RequestBody Login login) {
 		log.info("Login  = {} ", login);
-		loginService.updateCredentials(id, login);
+		loginService.updateCredentials(id, login, "update");
 		return "User credentials updated successfully!";
 	}
 
@@ -132,7 +131,10 @@ public class LoginController {
 			}
 			login.setUsername(l.getUsername());
 			login.setMobileNumber(l.getMobilenumber());
-			loginService.updateCredentials(login.getId(), login);
+
+//			log.info("Login Details = {}", login);
+
+			loginService.updateCredentials(login.getId(), login, "login");
 
 			LoginDTO res = new LoginDTO();
 			res.setId(login.getId());

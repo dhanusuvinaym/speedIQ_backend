@@ -10,6 +10,9 @@ import com.example.demo.entity.Login;
 import com.example.demo.repository.LoginRepository;
 import com.example.demo.service.LoginService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class LoginServiceImpl implements LoginService {
 
@@ -24,14 +27,14 @@ public class LoginServiceImpl implements LoginService {
 
 	// Update user credentials
 	@Override
-	public void updateCredentials(int id, Login l) {
+	public void updateCredentials(int id, Login l, String flag) {
 		Optional<Login> existingUser = loginRepository.findById(id);
 		if (existingUser.isPresent()) {
 			Login updatedUser = existingUser.get();
+			updatedUser.setUsername(l.getUsername());
 			updatedUser.setMobileNumber(l.getMobileNumber());
-			updatedUser.setTokenId(l.getTokenId());
 			updatedUser.setActivity_date(l.getActivity_date());
-			updatedUser.setIsvalid(l.isIsvalid());
+			updatedUser.setIsvalid(flag.equals("login") ? updatedUser.isIsvalid() : false);
 			loginRepository.save(updatedUser);
 		}
 	}

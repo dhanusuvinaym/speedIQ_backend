@@ -11,7 +11,7 @@ import com.example.demo.entity.UserPerformance;
 
 public interface UserPerformanceRepository extends JpaRepository<UserPerformance, Integer> {
 
-	@Query(value = "select u.id,l.username,l.mobilenumber,l.tokenid,u.score,u.exam_duration_time as examDurationTime,u.date_time as dateTime from userperformance as u\r\n"
+	@Query(value = "select u.id,l.username,l.mobilenumber,l.tokenid,u.score,u.exam_duration_time as examDurationTime,u.status,u.date_time as dateTime from userperformance as u\r\n"
 			+ "inner join login as l\r\n"
 			+ "where u.user_id=l.id order by score desc,exam_duration_time asc;", nativeQuery = true)
 	List<UserPerformanceDTO> getUserPerformanceBasedOnScoreAndExamDurationTime();

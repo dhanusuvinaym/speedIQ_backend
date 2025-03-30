@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.Guidelines;
 import com.example.demo.service.GuidelineService;
 
-@CrossOrigin("http://speediqfrontend.s3-website-ap-southeast-2.amazonaws.com/")
+//@CrossOrigin("http://speediq.com.s3-website.eu-north-1.amazonaws.com/")
 @RestController
 @RequestMapping("/api/guidelines")
 public class GuidelineController {

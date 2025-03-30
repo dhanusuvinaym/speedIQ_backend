@@ -20,7 +20,7 @@ import com.example.demo.entity.UserPerformance;
 import com.example.demo.service.UserPerformanceService;
 
 //@CrossOrigin("http://localhost:3000")
-@CrossOrigin("http://speediqfrontend.s3-website-ap-southeast-2.amazonaws.com/")
+//@CrossOrigin("http://speediq.com.s3-website.eu-north-1.amazonaws.com/")
 @RestController
 @RequestMapping("/api/userperformance")
 public class UserPerformanceController {

@@ -8,7 +8,7 @@ public interface LoginService {
 
 	void createUser(Login l);
 	
-	void updateCredentials(int id,Login l);
+	void updateCredentials(int id,Login l,String flag);
 	
 	Login getUserWithToken(String token);
 	

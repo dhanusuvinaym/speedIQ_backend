@@ -10,7 +10,7 @@ import java.util.Date;
 public class JwtUtil {
 
     private static final String SECRET_KEY = "afafasfafafasfasfasfafacasdasfasxASFACASDFACASDFASFASFDAFASFASDAADSCSDFADCVSGCFVADXCcadwavfsfarvf"; // Keep this safe
-    private static final long EXPIRATION_TIME = 3600000; // 1 hour
+    private static final long EXPIRATION_TIME = 86400000; // 1 day
 
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
@@ -20,7 +20,7 @@ public class JwtUtil {
         return Jwts.builder()
                 .setSubject(password) // Use the password as the subject
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // 1 hour expiration
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME)) // 1 day
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }

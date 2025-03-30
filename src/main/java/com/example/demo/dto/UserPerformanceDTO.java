@@ -19,16 +19,18 @@ public class UserPerformanceDTO {
 	public String tokenid;
 	public int score;
 	public LocalTime examDurationTime;
+	public String status;
 	public LocalDateTime dateTime;
 
 	public UserPerformanceDTO(int id, String username, String mobilenumber, String tokenid, int score,
-			Time exam_duration_time, Timestamp date_time) {
+			Time exam_duration_time, String status, Timestamp date_time) {
 		this.id = id;
 		this.username = username;
 		this.mobilenumber = mobilenumber;
 		this.tokenid = tokenid;
 		this.score = score;
 		this.examDurationTime = exam_duration_time.toLocalTime();
+		this.status = status;
 		this.dateTime = date_time.toLocalDateTime();
 	}
 }
