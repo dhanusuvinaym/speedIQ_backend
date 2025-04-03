@@ -19,7 +19,6 @@ import com.example.demo.entity.Admin;
 import com.example.demo.security.JwtUtil;
 import com.example.demo.service.AdminService;
 
-
 //@CrossOrigin("http://speediq.com.s3-website.eu-north-1.amazonaws.com/")
 @RestController
 @RequestMapping("/api/admin")
@@ -53,20 +52,19 @@ public class AdminController {
 	public ResponseEntity<AdminDTO> validateUser(@RequestParam("username") String username,
 			@RequestParam("password") String password) {
 		Admin admin = adminService.validateUserDetails(username, password);
-		AdminDTO adminDto = new AdminDTO();
-		if (admin != null) {
-			adminDto.setId(admin.getId());
-			adminDto.setJwtToken(jwtUtil.generateToken(password));
-			adminDto.setUsername(username);
-			adminDto.setPassword(password);
-			return ResponseEntity.ok(adminDto);
-		} else {
-			return null;
+		if (admin == null) {
+			throw new RuntimeException("Invalid Token ID");
 		}
+		AdminDTO adminDto = new AdminDTO();
+		adminDto.setId(admin.getId());
+		adminDto.setJwtToken(jwtUtil.generateToken(password));
+		adminDto.setUsername(username);
+		adminDto.setPassword(password);
+		return ResponseEntity.ok(adminDto);
 	}
-	
+
 	@GetMapping("/getAll")
-	public List<Admin> getAllAdminDetails(){
+	public List<Admin> getAllAdminDetails() {
 		return adminService.getAllAdmins();
 	}
 }

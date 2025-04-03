@@ -28,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.LoginDTO;
 import com.example.demo.entity.Login;
+import com.example.demo.repository.LoginRepository;
 import com.example.demo.security.JwtUtil;
 import com.example.demo.service.LoginService;
 
@@ -42,6 +43,9 @@ public class LoginController {
 
 	@Autowired
 	private LoginService loginService;
+
+	@Autowired
+	private LoginRepository loginRepository;
 
 	@Autowired
 	private JwtUtil jwtUtil;
@@ -149,6 +153,15 @@ public class LoginController {
 			log.error("Error validating user", e);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
+	}
+
+	@GetMapping("/getByTokenId/{tokenId}")
+	public Login getByTokenId(@PathVariable("tokenId") String tokenId) {
+		Login login = loginRepository.findByTokenId(tokenId).orElse(null);
+		if (login == null) {
+			throw new RuntimeException("Invalid Token ID");
+		}
+		return login;
 	}
 
 	@DeleteMapping("/delete/{id}")
